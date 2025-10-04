@@ -12,38 +12,38 @@ import {
 import { FileText, Download, TrendingUp, DollarSign, Percent } from "lucide-react";
 
 const repasseAtual = {
-  periodo: "01/01/2025 - 31/01/2025",
-  valorBruto: 35910.0,
-  taxas: 3231.9,
-  valorLiquido: 32678.1,
+  periodo: "25/01/2025 - 31/01/2025",
+  valorBruto: 8520.0,
+  taxas: 766.8,
+  valorLiquido: 7753.2,
   status: "em_aberto",
-  previsaoPagamento: "05/02/2025",
+  dataPagamento: "07/02/2025",
 };
 
 const historico = [
   {
-    mes: "Dezembro 2024",
-    valorBruto: 28450.0,
-    taxas: 2560.5,
-    valorLiquido: 25889.5,
+    semana: "18/01/2025 - 24/01/2025",
+    valorBruto: 8150.0,
+    taxas: 733.5,
+    valorLiquido: 7416.5,
     status: "pago",
-    dataPagamento: "05/01/2025",
+    dataPagamento: "31/01/2025",
   },
   {
-    mes: "Novembro 2024",
-    valorBruto: 31200.0,
-    taxas: 2808.0,
-    valorLiquido: 28392.0,
+    semana: "11/01/2025 - 17/01/2025",
+    valorBruto: 9200.0,
+    taxas: 828.0,
+    valorLiquido: 8372.0,
     status: "pago",
-    dataPagamento: "05/12/2024",
+    dataPagamento: "24/01/2025",
   },
   {
-    mes: "Outubro 2024",
-    valorBruto: 26780.0,
-    taxas: 2410.2,
-    valorLiquido: 24369.8,
+    semana: "04/01/2025 - 10/01/2025",
+    valorBruto: 7680.0,
+    taxas: 691.2,
+    valorLiquido: 6988.8,
     status: "pago",
-    dataPagamento: "05/11/2024",
+    dataPagamento: "17/01/2025",
   },
 ];
 
@@ -53,7 +53,7 @@ const Financeiro = () => {
       <div>
         <h1 className="text-3xl font-bold text-foreground">Financeiro</h1>
         <p className="text-muted-foreground mt-1">
-          Acompanhe seus repasses e histórico financeiro
+          Acompanhe seus repasses semanais e histórico financeiro
         </p>
       </div>
 
@@ -61,7 +61,7 @@ const Financeiro = () => {
         <Card className="border-l-4 border-l-primary">
           <CardHeader>
             <CardTitle className="text-sm font-medium text-muted-foreground">
-              Receita Bruta do Mês
+              Receita Bruta da Semana
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -110,7 +110,7 @@ const Financeiro = () => {
       <Card>
         <CardHeader>
           <div className="flex items-center justify-between">
-            <CardTitle>Repasse do Mês Atual</CardTitle>
+            <CardTitle>Repasse Semanal</CardTitle>
             <Badge variant="outline" className="text-warning border-warning">
               {repasseAtual.status === "em_aberto" ? "Em Aberto" : "Pago"}
             </Badge>
@@ -119,12 +119,12 @@ const Financeiro = () => {
         <CardContent className="space-y-4">
           <div className="grid gap-4 md:grid-cols-2">
             <div>
-              <p className="text-sm font-medium text-muted-foreground">Período de Apuração</p>
+              <p className="text-sm font-medium text-muted-foreground">Período dos agendamentos (7 dias anteriores)</p>
               <p className="text-lg font-semibold mt-1">{repasseAtual.periodo}</p>
             </div>
             <div>
-              <p className="text-sm font-medium text-muted-foreground">Previsão de Pagamento</p>
-              <p className="text-lg font-semibold mt-1">{repasseAtual.previsaoPagamento}</p>
+              <p className="text-sm font-medium text-muted-foreground">Data de pagamento</p>
+              <p className="text-lg font-semibold mt-1">{repasseAtual.dataPagamento}</p>
             </div>
           </div>
 
@@ -150,6 +150,12 @@ const Financeiro = () => {
             </div>
           </div>
 
+          <div className="rounded-lg bg-muted/50 p-4 text-sm text-muted-foreground">
+            <p>
+              ℹ️ Os repasses são realizados automaticamente a cada 7 dias corridos, contados a partir da data de cada reserva concluída com sucesso.
+            </p>
+          </div>
+
           <div className="flex gap-2">
             <Button variant="outline" className="flex-1">
               <FileText className="mr-2 h-4 w-4" />
@@ -165,7 +171,7 @@ const Financeiro = () => {
 
       <Card>
         <CardHeader>
-          <CardTitle>Histórico de Depósitos</CardTitle>
+          <CardTitle>Histórico de Repasses Semanais</CardTitle>
         </CardHeader>
         <CardContent>
           <Table>
@@ -183,7 +189,7 @@ const Financeiro = () => {
             <TableBody>
               {historico.map((item, index) => (
                 <TableRow key={index}>
-                  <TableCell className="font-medium">{item.mes}</TableCell>
+                  <TableCell className="font-medium">{item.semana}</TableCell>
                   <TableCell>R$ {item.valorBruto.toLocaleString("pt-BR")}</TableCell>
                   <TableCell className="text-muted-foreground">
                     R$ {item.taxas.toLocaleString("pt-BR")}

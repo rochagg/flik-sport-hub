@@ -15,7 +15,7 @@ const faqItems = [
   {
     pergunta: "Como funcionam os repasses financeiros?",
     resposta:
-      "Os repasses são realizados mensalmente. Ao final de cada mês, consolidamos todas as transações, descontamos a taxa de 9% do FLIK e realizamos o depósito em até 30 dias na conta bancária cadastrada.",
+      "Os repasses são processados automaticamente em ciclos semanais, 7 dias após a data de cada agendamento confirmado. Descontamos a taxa de 9% do FLIK e realizamos o depósito diretamente na conta bancária cadastrada.",
   },
   {
     pergunta: "Como adiciono uma nova quadra?",

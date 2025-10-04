@@ -53,7 +53,7 @@ const FormasPagamento = () => {
               <p className="text-sm text-muted-foreground mt-1">
                 Todos os pagamentos são processados de forma segura pela plataforma FLIK.
                 Os valores são repassados automaticamente para sua conta bancária cadastrada
-                seguindo o cronograma de repasses (D+30).
+                a cada 7 dias corridos após a confirmação de cada reserva.
               </p>
               <p className="text-sm text-muted-foreground mt-2">
                 <strong>Taxa FLIK:</strong> 9% sobre o valor bruto de cada transação (já inclui taxas de gateway de pagamento).
@@ -115,9 +115,9 @@ const FormasPagamento = () => {
                 2
               </div>
               <div>
-                <p className="font-medium">Período de apuração</p>
+                <p className="font-medium">Ciclo de repasse</p>
                 <p className="text-sm text-muted-foreground">
-                  As transações são consolidadas ao final do mês
+                  A cada 7 dias, as transações concluídas são consolidadas
                 </p>
               </div>
             </div>
@@ -126,9 +126,9 @@ const FormasPagamento = () => {
                 3
               </div>
               <div>
-                <p className="font-medium">Repasse automático</p>
+                <p className="font-medium">Repasse automático semanal</p>
                 <p className="text-sm text-muted-foreground">
-                  O valor líquido (descontando 9%) é depositado em até 30 dias na sua conta
+                  O valor líquido (descontando 9%) é depositado automaticamente 7 dias após cada reserva confirmada
                 </p>
               </div>
             </div>
